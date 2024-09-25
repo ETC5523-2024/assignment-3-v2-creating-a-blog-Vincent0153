@@ -1,12 +1,12 @@
 ---
-title: "Welcome To My Blog Template"
-author: "Emi Tanaka"
-date: "2022-07-18"
-categories: [news]
+title: "March Madness Unveiled: Analyzing Predictions and Performances in the 2024 NCAA"
+author: "Jiwen Zhou"
+date: "2024-09-25"
+categories: [articles]
 ---
 
 This is the first post in a Quarto blog. Welcome!
 
-![](thumbnail.jpg)
+![](March_Madness.png)
 
 
