@@ -1,13 +1,26 @@
 ---
-title: "About"
-image: profile.jpg
+title: "About me"
+image: profileicon.JPG
 about:
-  template: jolla
+  template: solana
   links:
     - icon: github
       text: Github
-      href: https://github.com/etc5523-2022
+      href: https://github.com/Vincent0153
 
 ---
+:::{#hero-heading}
 
-This is a blog template for the ETC5523 Communicating with Data assessment at Monash University.
+Hi there! I am Jiwen Zhou, and you can call me Vincent. I am doing Master of Business Analytics at Monash University. 
+This is my first quarto blog, I am trying to share my own articles and something interesting things with all of you. However, there are still many things for me to learn, so there might be something to improve, I would be appreciate if you tell me what can be developed. Hope you guys have fun in my home!
+
+## Education
+
+**Lixin Accounting and Finance University**, Shanghai, China
+
+Bachelor of Applied Statistics | Sept 2019 - June 2023
+
+**Monash University**, Melbourne, Australia
+
+Master of Business Analytics | Feb 2024 - Present
+:::
