@@ -7,6 +7,16 @@ about:
     - icon: github
       text: Github
       href: https://github.com/Vincent0153
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/snowmoon_xueyue/
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/snowmoon_xueyue/
+    - icon: steam
+      text: Steam
+      href: https://steamcommunity.com/id/eocvincent/
+      
 
 ---
 :::{#hero-heading}
@@ -23,4 +33,31 @@ Bachelor of Applied Statistics | Sept 2019 - June 2023
 **Monash University**, Melbourne, Australia
 
 Master of Business Analytics | Feb 2024 - Present
+
+
+## Hobby
+
+- Video games
+
+- Basketball
+
+- Road trip
+
+## Video Games
+
+- Overwatch
+
+- Final Fantasy Series
+
+- Hearthstone
+
+- Monster Hunter Series
+
+If you also enjoy playing video games, then add me as your steam friend!
+
+## Contact
+
+- <i class="fas fa-envelope"></i> [jzho0153@student.monash.edu](mailto:jzho0153@student.monash.edu)
+
+
 :::
