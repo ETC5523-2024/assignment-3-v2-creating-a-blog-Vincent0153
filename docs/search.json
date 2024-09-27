@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Cinderella in the 2024 NCAA\n\n\n\n\n\n\narticles\n\n\n\n\n\n\n\n\n\nSep 25, 2024\n\n\nJiwen Zhou\n\n\n\n\n\n\nNo matching items"
+    "text": "The Cinderella story of 2024 NCAA March Madness\n\n\n\n\n\n\narticles\n\n\n\n\n\n\n\n\n\nSep 25, 2024\n\n\nJiwen Zhou\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -16,9 +16,9 @@
   {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
-    "title": "Cinderella in the 2024 NCAA",
+    "title": "The Cinderella story of 2024 NCAA March Madness",
     "section": "",
-    "text": "March Madness is just around the corner, and it is one of the biggest annual sporting events in the US. Every year, 68 college basketball teams face off in a high-stakes, knock-out tournament to claim the title of NCAA Men’s Division I champion. What makes it so thrilling is that no one really knows who will get the trophy.\nSo, what influences the public picks? It’s usually a mix of things: past performances, current season form, and, of course, public sentiment. In this analysis, we can dig into how teams’ past achievements and their current season’s results shape the predictions for 2024."
+    "text": "Do you want to know what’s the exciting part in NCAA March Madness? And which team is more likely to win the prize? Come on in and have a look!"
   },
   {
     "objectID": "about.html#education",
@@ -47,5 +47,19 @@
     "title": "About me",
     "section": "",
     "text": "Overwatch\nFinal Fantasy Series\nHearthstone\nMonster Hunter Series\n\nIf you also enjoy playing video games, then add me as your steam friend!"
+  },
+  {
+    "objectID": "posts/welcome/index.html#where-the-data-comes-from",
+    "href": "posts/welcome/index.html#where-the-data-comes-from",
+    "title": "The Cinderella story of 2024 NCAA March Madness",
+    "section": "Where the data comes from?",
+    "text": "Where the data comes from?\nI got the data from Kaggle. To keep it simple and efficient, I only focused on three datasets, “538Ratings”, “public_picks”, and “Heat_Check_Tournament_Index”. To make the data easier, I joined “public_picks” and “Tournament_Index” into one datasets called “index_picks”. What’s more, I removed special symbols like percentage signs and spaces in ‘FINALS’ and converted it into numeric. After that, I kept several variables that might be useful for visualizations and analysis, also, I filter the records after year 2016 to keep the time period same.\n\npublic_picks &lt;- public_picks |&gt;\n  select(TEAMNO,FINALS)\n\nindex &lt;- index |&gt;\n  rename(TEAMNO = `TEAM NO`)\n\nindex_picks &lt;- index |&gt;\n  left_join(public_picks, by = \"TEAMNO\")\n\n\n# Remove any extraneous characters (e.g., percentage signs, spaces)\nindex_picks$FINALS &lt;- gsub(\"%\", \"\", index_picks$FINALS)  # Remove percentage signs\nindex_picks$FINALS &lt;- gsub(\" \", \"\", index_picks$FINALS)  # Remove spaces\n\n\n# Convert FINALS to numeric\nindex_picks$FINALS &lt;- as.numeric(index_picks$FINALS)\n\n#Select variable\nindex_picks &lt;- index_picks |&gt;\n  select(YEAR,TEAMNO,TEAM,SEED,ROUND,POWER,FINALS) |&gt;\n  filter(YEAR &gt;= 2016)\n\nThere are seven variables in the dataset “index_picks”. They are ‘YEAR’, ‘TEAMNO’, ‘TEAM’, ‘SEED’, ‘ROUND’\n\n\n\n\nTable 1: Public picks in Finals in 2024\n\n\n\n\n\n\n\nTEAM\nFINALS\n\n\n\n\nConnecticut\n34.92%\n\n\nNorth Carolina\n12.1%\n\n\nPurdue\n10.22%\n\n\nHouston\n9.27%\n\n\nIowa St.\n4.78%\n\n\nArizona\n4.06%\n\n\nKentucky\n3.48%\n\n\nTennessee\n3.02%"
+  },
+  {
+    "objectID": "posts/welcome/index.html#what-is-march-madness-and-whats-the-problem",
+    "href": "posts/welcome/index.html#what-is-march-madness-and-whats-the-problem",
+    "title": "The Cinderella story of 2024 NCAA March Madness",
+    "section": "What is March Madness and what’s the problem?",
+    "text": "What is March Madness and what’s the problem?\nMarch Madness is just around the corner, and it is one of the biggest annual sporting events in the US. Every year, 68 college basketball teams face off in a high-stakes, knock-out tournament to claim the title of NCAA Men’s Division I champion. What makes it so thrilling is that no one really knows who will get the trophy.\nSo, what influences the public picks? It’s usually a mix of things: past performances, current season form, and, of course, public sentiment. In this analysis, we can dig into how teams’ past achievements and their current season’s results shape the predictions for 2024."
   }
 ]
