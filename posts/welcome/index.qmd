@@ -1,12 +1,27 @@
 ---
-title: "March Madness Unveiled: Analyzing Predictions and Performances in the 2024 NCAA"
+title: "Cinderella in the 2024 NCAA"
 author: "Jiwen Zhou"
 date: "2024-09-25"
 categories: [articles]
 ---
 
-This is the first post in a Quarto blog. Welcome!
-
 ![](March_Madness.png)
 
+
+March Madness is just around the corner, and it is one of the biggest annual sporting events in the US. Every year, 68 college basketball teams face off in a high-stakes, knock-out tournament to claim the title of NCAA Men’s Division I champion. What makes it so thrilling is that no one really knows who will get the trophy.
+
+So, what influences the public picks? It’s usually a mix of things: past performances, current season form, and, of course, public sentiment. In this analysis, we can dig into how teams' past achievements and their current season's results shape the predictions for 2024.
+
+
+```{r Load data}
+#| echo: false
+team_results <- read_csv("data/teams.csv")
+public_picks <- read_csv("data/public_picks.csv")
+ratings <- read_csv("data/538Ratings.csv")
+index <- read_csv("data/Heat_Check_Tournament_Index.csv")
+```
+
+## Where the data comes from?
+
+I got the data from [Kaggle](https://www.kaggle.com/datasets/nishaanamin/march-madness-data/). To keep it simple and efficient, I only focused on three datasets, "538Ratings", "public_picks", and "Heat_Check_Tournament_Index". To make the data easier, I joined "public_picks" and "Tournament_Index" into one datasets called "index_picks". What's more, I removed special symbols like percentage signs and spaces in 'FINALS' and converted it into numeric. After that, I kept several variables that might be useful for visualizations and analysis. 
 
