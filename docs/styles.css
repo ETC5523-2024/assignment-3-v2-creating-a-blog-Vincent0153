@@ -3,19 +3,26 @@
   background-color: #006DAE;
 }
 
-
 body{
   background-color: #f0f8ff;
 }
 
 h1{
-    color: #2ecc71;
-  font-family: 'Arial', sans-serif;
+    color: #8c564b;
+  font-family: 'Copper Black', sans-serif;
   font-weight: bold;
+  font-size: 50px;
+}
+
+h2{
+    color: #8c564b;
+  font-family: 'Copper Black', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 
 p {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.6;
 }
