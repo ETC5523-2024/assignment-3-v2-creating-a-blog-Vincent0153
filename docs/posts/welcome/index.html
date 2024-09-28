@@ -193,12 +193,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Do you want to know what’s the exciting part in NCAA March Madness? And which team is more likely to win the prize? Come on in and have a look!</p>
 <p><img src="March_Madness.png" class="img-fluid"></p>
 <section id="what-is-march-madness-and-whats-the-problem" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-march-madness-and-whats-the-problem">What is March Madness and what’s the problem?</h2>
-<p>March Madness is just around the corner, and it is one of the biggest annual sporting events in the US. Every year, 68 college basketball teams face off in a high-stakes, knock-out tournament to claim the title of NCAA Men’s Division I champion. What makes it so thrilling is that no one really knows who will get the trophy.</p>
+<h2 class="anchored" data-anchor-id="what-is-march-madness-and-whats-the-problem">What is March Madness and what’s the problem</h2>
+<p>March Madness is just around the corner, and it is one of the biggest annual sporting events in the US. Every year, 68 college basketball teams face off in a high-stakes, knock-out tournament to claim the title of NCAA Men’s Division I champion[1]. What makes it so thrilling is that no one really knows who will get the trophy.</p>
 <p>So, what influences the public picks? It’s usually a mix of things: past performances, current season form, and, of course, public sentiment. In this analysis, we can dig into how teams’ past achievements and their current season’s results shape the predictions for 2024.</p>
 </section>
 <section id="where-the-data-comes-from" class="level2">
-<h2 class="anchored" data-anchor-id="where-the-data-comes-from">Where the data comes from?</h2>
+<h2 class="anchored" data-anchor-id="where-the-data-comes-from">Where the data comes from</h2>
 <p>I got the data from <a href="https://www.kaggle.com/datasets/nishaanamin/march-madness-data/">Kaggle</a>. To keep it simple and efficient, I only focused on three datasets, “538Ratings”, “public_picks”, and “Heat_Check_Tournament_Index”. To make the data easier, I joined “public_picks” and “Tournament_Index” into one datasets called “index_picks”. What’s more, I removed special symbols like percentage signs and spaces in ‘FINALS’ and converted it into numeric. After that, I kept several variables that might be useful for visualizations and analysis, also, I filter the records after year 2016 to keep the time period same.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>public_picks <span class="ot">&lt;-</span> public_picks <span class="sc">|&gt;</span></span>
@@ -224,7 +224,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(YEAR,TEAMNO,TEAM,SEED,ROUND,POWER,FINALS) <span class="sc">|&gt;</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(YEAR <span class="sc">&gt;=</span> <span class="dv">2016</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>There are seven variables in the dataset “index_picks”. They are ‘YEAR’, ‘TEAMNO’, ‘TEAM’, ‘SEED’, ‘ROUND’</p>
+<p>There are seven variables in the dataset “index_picks”. They are ‘YEAR’, ‘TEAMNO’, ‘TEAM’, ‘SEED’, ‘ROUND’, ‘POWER’ and ‘FINALS’. ‘YEAR’ is the ending year of the team’s season, ‘TEAMNO’ and ‘TEAM’ all represent a unique college basketball team, ‘SEED’ shows the preliminary ranking for the March Madness tournament, ‘POWER’ is the calculation of the team’s strength relative to other teams in the tournament by Heat Check, ‘FINALS’ summaries the percentage of people who picked the team to win the game in the Finals.</p>
+<p>There are also seven variables in the dataset “538Ratings”. Some of them are exactly the same as those in “index_picks”. The various ones are ‘POWER RATING’ and ‘POWER RATING RANK’. The previous one is also the calculation of the team’s strength but calculated by 538. The other one shows the rank of power rating across all tournament teams.</p>
+</section>
+<section id="connecticut-comes-to-the-top-in-public-picks" class="level2">
+<h2 class="anchored" data-anchor-id="connecticut-comes-to-the-top-in-public-picks">Connecticut comes to the top in public picks</h2>
+<p>I filtered out the top eight colleges that have the most opportunity to win the grand final of 2024 season in people’s opinion. Through <a href="#tbl-finalpick" class="quarto-xref">Table&nbsp;1</a>, Connecticut stands out as a fan favorite with 34.92% of people picking them to win the finals. That’s really a great lead compared to other powerful teams like North Carolina(12.1% picking rate) and Purdue(10.22% picking rate). This tells us that Connecticut is currently seen as the top contender for the championship, at least in the minds of the fans.</p>
 <div class="cell">
 <div id="tbl-finalpick" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -284,6 +289,50 @@ Table&nbsp;1: Public picks in Finals in 2024
 </figure>
 </div>
 </div>
+</section>
+<section id="historical-performance-also-matters" class="level2">
+<h2 class="anchored" data-anchor-id="historical-performance-also-matters">Historical performance also matters</h2>
+<p>Here is the interesting part. When we look at the power ranking over the years(<a href="#fig-trend" class="quarto-xref">Figure&nbsp;1</a>), North Carolina had a high rank in 2016 but has a fluctuating performance in the next years. According to the NCAA history, North Carolina has the most NCAA tournament wins, with 131 wins[2], which means it is a superpower in all times. Other strong teams like Kentucky and Purdue also have ups and downs. On the flip side, Connecticut has shown a strong upward trend in recent years, which aligns with its high probability to win the finals and gives people more confidence.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-trend" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="h!">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-trend-1.png" class="img-fluid figure-img" data-fig-pos="h!" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Power Rating Trends of Teams Over Years
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="tops-seeds-and-consistency" class="level2">
+<h2 class="anchored" data-anchor-id="tops-seeds-and-consistency">Tops seeds and consistency</h2>
+<p>Another interesting part is that, when we look at the plot <a href="#fig-seed" class="quarto-xref">Figure&nbsp;2</a>, Houston and North Carolina dominate here, earning top seeds the most times. What’s surprising is that Connecticut is one of the most popular teams in 2024 season although it hasn’t been a top-three seed once.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-seed" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-pos="h!">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-seed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-seed-1.png" class="img-fluid figure-img" data-fig-pos="h!" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-seed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Number of times getting a top three seed
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>To wrap up, what do these mean for the 2024 March Madness? Teams like North Carolina, Purdue, and Houston remain forces. Their consistent rankings over multiple seasons highlight their outstanding historical performances, making them powerful opponents for any team they encounter, even if they may not always reach the very top. Meanwhile, Connecticut might be the Cinderella of the tournament, it’s the team which has captured the public’s confidence thanks to its recent form, even though not always being in the top seeds.</p>
+<p>As the competition going on, it will be interesting to see if Connecticut can live up to expectations and make history or if another team will defeat them and take the trophy.</p>
+</section>
+<section id="reference" class="level2">
+<h2 class="anchored" data-anchor-id="reference">Reference</h2>
+<p><em>[1] Wikipedia Contributors. (2021, March 3). NCAA Division I Men’s Basketball Tournament. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/NCAA_Division_I_Men%27s_Basketball_Tournament</em></p>
+<p><em>[2] Wilco, D. (2023, March 8). March Madness history: A comprehensive guide to the men’s tournament | NCAA.com. Www.ncaa.com. https://www.ncaa.com/news/basketball-men/article/2023-03-08/march-madness-history-comprehensive-guide-mens-tournament</em></p>
+<p><em>[3] Amin, N. (2024). March Madness Data. Kaggle.com. https://www.kaggle.com/datasets/nishaanamin/march-madness-data/</em></p>
 
 
 </section>

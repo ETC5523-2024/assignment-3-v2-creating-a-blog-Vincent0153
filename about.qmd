@@ -22,7 +22,7 @@ about:
 :::{#hero-heading}
 
 Hi there! I am Jiwen Zhou, and you can call me Vincent. I am doing Master of Business Analytics at Monash University. 
-This is my first quarto blog, I am trying to share my own articles and something interesting things with all of you. However, there are still many things for me to learn, so there might be something to improve, I would be appreciate if you tell me what can be developed. Hope you guys have fun in my home!
+This is my first quarto blog, I am trying to share my own articles and something interesting with all of you. However, there are still many things for me to learn, so there might be something to improve, I would be appreciate if you tell me what can be developed. Hope you guys have fun in this space!
 
 ## Education
 
