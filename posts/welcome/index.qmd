@@ -27,21 +27,18 @@ library(ggplot2)
 ```
 
 
-```{r Load data}
-#| echo: false
-#| message: false
-#| warning: false
-public_picks <- read_csv("data/public_picks.csv")
-ratings <- read_csv("data/538Ratings.csv")
-index <- read_csv("data/Heat_Check_Tournament_Index.csv")
-```
-
 ## Where the data comes from
 
 I got the data from [Kaggle](https://www.kaggle.com/datasets/nishaanamin/march-madness-data/). To keep it simple and efficient, I only focused on three datasets, "538Ratings", "public_picks", and "Heat_Check_Tournament_Index". To make the data easier, I joined "public_picks" and "Tournament_Index" into one datasets called "index_picks". What's more, I removed special symbols like percentage signs and spaces in 'FINALS' and converted it into numeric. After that, I kept several variables that might be useful for visualizations and analysis, also, I filter the records after year 2016 to keep the time period same. 
 
 
 ```{r}
+#| warning: false
+#| message: false
+public_picks <- read_csv("data/public_picks.csv")
+ratings <- read_csv("data/538Ratings.csv")
+index <- read_csv("data/Heat_Check_Tournament_Index.csv")
+
 public_picks <- public_picks |>
   select(TEAMNO,FINALS)
 
